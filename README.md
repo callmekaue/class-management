@@ -1,117 +1,373 @@
-# Gestor de Turmas
+<div align="center">
 
-Central de controle para o representante administrar as 6 turmas da semana (segunda a sábado), com grupos dinâmicos, alunos, líderes, notas individuais e de grupo, diário e relatórios em PDF.
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0b1220,50:1d4ed8,100:38bdf8&height=260&section=header&text=Gestor%20de%20Turmas&fontSize=64&fontColor=ffffff&fontAlignY=38&animation=fadeIn&desc=Central%20de%20controle%20para%20representantes%20de%20turma&descSize=20&descAlignY=60" alt="Gestor de Turmas" />
 
-Esta entrega contém três arquivos:
-- **`index.html`** — o sistema em si (abra para usar)
-- **`schema.sql`** — script para criar o banco de dados real no Supabase (opcional, veja seção 4)
-- **`README.md`** — este arquivo
+<a href="https://github.com/callmekaue/gestor-de-turmas">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3200&pause=900&color=38BDF8&center=true&vCenter=true&width=760&height=48&lines=6+turmas%2C+de+segunda+a+s%C3%A1bado;Grupos+din%C3%A2micos+com+arrastar+e+soltar;Notas+individuais+e+de+grupo;Di%C3%A1rio+da+turma+com+hist%C3%B3rico+fiel;Relat%C3%B3rios+reais+em+PDF;Um+%C3%BAnico+arquivo.+Abriu%2C+funcionou." alt="Animacao de destaques do projeto" />
+</a>
 
-## 1. Como instalar
+<br/>
 
-Não há instalação obrigatória. `index.html` é um único arquivo autocontido que carrega React, Chart.js, jsPDF e (se você conectar um banco) o SDK do Supabase de CDNs públicas no momento em que é aberto no navegador. Basta ter o arquivo salvo em qualquer pasta do computador, ou hospedado em qualquer lugar (veja seção 4 para persistência ao hospedar).
+<img src="https://img.shields.io/badge/React-18-0b1220?style=for-the-badge&logo=react&logoColor=38bdf8" alt="React" />
+<img src="https://img.shields.io/badge/Chart.js-graficos-0b1220?style=for-the-badge&logo=chartdotjs&logoColor=ff6384" alt="Chart.js" />
+<img src="https://img.shields.io/badge/jsPDF-relatorios-0b1220?style=for-the-badge&logo=adobeacrobatreader&logoColor=ef4444" alt="jsPDF" />
+<img src="https://img.shields.io/badge/Supabase-Postgres-0b1220?style=for-the-badge&logo=supabase&logoColor=3ecf8e" alt="Supabase" />
+<img src="https://img.shields.io/badge/Build-nenhum-0b1220?style=for-the-badge&logo=html5&logoColor=e34f26" alt="Sem build" />
 
-## 2. Como executar
+<br/><br/>
 
-Dê duplo clique em `index.html` (ou abra com "Abrir com... Google Chrome/Edge/Firefox"). É necessário estar conectado à internet apenas para carregar as bibliotecas na primeira vez que a página é aberta (elas ficam em cache do navegador nas vezes seguintes). Nenhum dado seu é enviado para fora do seu computador — tudo roda localmente.
+<img src="https://img.shields.io/github/stars/callmekaue/gestor-de-turmas?style=flat-square&color=1d4ed8&labelColor=0b1220" alt="Stars" />
+<img src="https://img.shields.io/github/forks/callmekaue/gestor-de-turmas?style=flat-square&color=1d4ed8&labelColor=0b1220" alt="Forks" />
+<img src="https://img.shields.io/github/last-commit/callmekaue/gestor-de-turmas?style=flat-square&color=1d4ed8&labelColor=0b1220" alt="Ultimo commit" />
+<img src="https://img.shields.io/github/repo-size/callmekaue/gestor-de-turmas?style=flat-square&color=1d4ed8&labelColor=0b1220" alt="Tamanho" />
 
-Se preferir servir por um servidor local (opcional, útil para evitar particularidades de `file://` em alguns navegadores):
-```
-npx serve .
-```
-e acesse o endereço indicado (ex.: http://localhost:3000).
+<br/><br/>
 
-## 3. Como gerar build
+[Sobre](#sobre) &nbsp;|&nbsp;
+[Preview](#preview) &nbsp;|&nbsp;
+[Recursos](#recursos) &nbsp;|&nbsp;
+[Fluxo](#fluxo-principal) &nbsp;|&nbsp;
+[Instalacao](#como-instalar) &nbsp;|&nbsp;
+[Dados](#onde-ficam-os-dados) &nbsp;|&nbsp;
+[Banco SQL](#modo-com-banco-sql-real) &nbsp;|&nbsp;
+[Evolucao](#evolucao)
 
-Não há etapa de build. O arquivo já é o produto final — é por isso que a entrega não depende de `npm install`, Vite, TypeScript compilado etc. Isso foi uma escolha deliberada para garantir que o sistema abra e funcione imediatamente em qualquer computador, sem exigir Node.js instalado. Veja a seção 6 para o caminho de evolução para uma stack com build (Vite + TS + Tailwind + shadcn/ui), caso deseje seguir esse caminho depois.
+</div>
 
-## 4. Onde ficam os dados
+<br/>
 
-Por padrão, tudo é salvo no **localStorage** do navegador, sob a chave `gestor_turmas_v1`. Isso é rápido e funciona offline, mas tem uma limitação importante: **os dados ficam presos àquele navegador/computador específico**. Se você hospedar o `index.html` e acessar de outro dispositivo, ele não vê o que foi salvo no primeiro.
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:1d4ed8,100:38bdf8&height=3&section=header" width="100%" alt="" />
 
-### Modo com banco SQL real (recomendado se for hospedar ou acessar de mais de um aparelho)
+## Sobre
 
-O sistema agora também sincroniza com um **banco de dados SQL real (Postgres via Supabase)**, de graça, sem precisar mexer em código — tudo pela própria interface:
+O **Gestor de Turmas** e um sistema feito para o representante administrar, em um so lugar, as **6 turmas da semana (segunda a sabado)**. Ele organiza grupos dinamicos, alunos, lideres, notas individuais e de grupo, diario de ocorrencias e gera relatorios em PDF, tudo sem tela de login e sem etapa de instalacao.
 
-1. Crie uma conta gratuita em **[supabase.com](https://supabase.com)** e um novo projeto (leva ~2 minutos para provisionar).
-2. No projeto, abra **SQL Editor** (menu lateral) → cole todo o conteúdo do arquivo **`schema.sql`** (incluído nesta entrega) → clique em **Run**. Isso cria todas as tabelas, já com as 6 turmas e as categorias padrão do diário.
-3. Vá em **Project Settings → API** e copie dois valores: a **Project URL** e a chave **`anon` `public`**.
-4. No Gestor de Turmas, clique no ícone de **banco de dados** na barra lateral (ou em **Relatórios → Conectar banco de dados**), cole a URL e a chave, e clique em **Conectar**.
+<table>
+<tr>
+<td width="33%" align="center">
 
-A partir daí, toda alteração (cadastrar aluno, trocar grupo, lançar nota, registrar diário...) é salva automaticamente no banco SQL. Qualquer navegador/dispositivo que você conectar com a **mesma URL e a mesma chave** vai ler e escrever nos mesmos dados — é assim que você consegue hospedar o sistema (ex.: Vercel, Netlify, GitHub Pages) e ter tudo salvando de verdade, de qualquer lugar.
+<img src="https://img.shields.io/badge/01-ABRIR-1d4ed8?style=for-the-badge&labelColor=0b1220" alt="Abrir" />
 
-**Importante sobre segurança:** como não há tela de login (por desenho, pensado para uso de uma única pessoa), o `schema.sql` libera leitura/escrita para a chave `anon` sem exigir autenticação. Isso é adequado para seu uso pessoal, mas significa que qualquer pessoa que descobrisse sua URL + chave também conseguiria alterar os dados. Não publique essas credenciais em lugares públicos (ex.: repositório GitHub público). Se quiser, no futuro, adicionar login, o `schema.sql` já deixa indicado onde trocar as políticas de acesso.
+Duplo clique no `index.html`. Nao ha `npm install`, nem build.
 
-**Se o banco cair, estiver mal configurado ou você estiver offline**, o sistema avisa (ícone fica vermelho) e continua funcionando normalmente salvando no localStorage daquele navegador — nada trava.
+</td>
+<td width="33%" align="center">
 
-### Detalhes técnicos de onde cada coisa fica
+<img src="https://img.shields.io/badge/02-USAR-1d4ed8?style=for-the-badge&labelColor=0b1220" alt="Usar" />
 
-- Modo local: chave `gestor_turmas_v1` no localStorage, como um único objeto JSON.
-- Credenciais do banco (se conectado): chave `gestor_turmas_sb_config` no localStorage (fica só no seu navegador; não é enviada a lugar nenhum além do próprio Supabase).
-- Backup manual do modo local: abra o Console do navegador (F12) e rode `copy(localStorage.getItem('gestor_turmas_v1'))`.
-- Backup do modo SQL: os dados já estão no seu projeto Supabase — você pode exportá-los a qualquer momento pelo "Table Editor" ou "SQL Editor" do próprio Supabase.
-- Toda a lógica de leitura/escrita está isolada na seção comentada `CAMADA DE ARMAZENAMENTO` e `SINCRONIZAÇÃO COM BANCO SQL`, no topo do arquivo. Nenhum componente de tela acessa `localStorage` ou o Supabase diretamente — todos passam pelas ações (`actions.*`) do componente `App`, que atualizam o estado local e, quando conectado, também gravam no banco.
+Cadastre turmas, grupos e alunos direto pela interface.
 
-## 5. Dados de exemplo (opcional — nada é carregado sozinho)
+</td>
+<td width="33%" align="center">
 
-O sistema **abre zerado**: as 6 turmas (segunda a sábado) e as categorias padrão do diário já existem, mas sem nenhum grupo, aluno, nota ou registro fictício. Você cadastra sua turma real direto pela interface, como explicado na pergunta anterior (Ações rápidas → Novo aluno / Novo grupo, ou dentro de cada turma).
+<img src="https://img.shields.io/badge/03-RELATAR-1d4ed8?style=for-the-badge&labelColor=0b1220" alt="Relatar" />
 
-Se quiser apenas **testar** o sistema antes de usar pra valer, existe um gerador de dados de exemplo opcional em **Relatórios → Zona de dados → "Carregar dados de exemplo (opcional, para teste)"**. Ele substitui tudo por alunos, grupos e notas fictícios — e mostra um aviso "DADOS DEMONSTRATIVOS" enquanto estiverem ativos. Depois, use **"Limpar tudo e começar do zero"** para voltar ao estado vazio.
+Filtre por turma, grupo, aluno e periodo e gere o PDF.
 
-Esse gerador fica na função `seedDatabase()` no código, caso queira customizá-lo (nomes, quantidade de grupos por dia etc.) — mas ele só roda se você clicar no botão, nunca sozinho.
+</td>
+</tr>
+</table>
 
-## 6. Banco de dados — já conectável, e caminho para evoluir mais
+<br/>
 
-O passo "conectar um banco de dados" já está pronto e é feito pela própria interface (seção 4 acima: crie um projeto Supabase, rode `schema.sql`, cole a URL e a chave no app). Para quem quiser ir além disso no futuro:
+## Preview
 
-- **Escritas mais granulares / regras de negócio no banco**: hoje cada ação do app (`addStudent`, `transferStudent`, `setLeader` etc., dentro de `App`) já faz sua própria chamada de escrita no Supabase (inserts/upserts pontuais, não um dump do JSON inteiro) — então dá para evoluir regra por regra (ex.: trocar um `upsert` por uma `stored procedure` no Postgres) sem reescrever a interface.
-- **Entidades**, já mapeadas 1:1 entre o app (camelCase) e as tabelas SQL (snake_case) em `schema.sql`:
+<div align="center">
 
-```
-classes            → id, name, day_index
-groups             → id, class_id, name, status(ativo/arquivado), leader_id, group_grade, created_at
-students           → id, name, rgm, class_id, group_id, status, observations, created_at
-individual_grades  → id, student_id, class_id, group_id, value, label, date
-group_grades_history → id, group_id, value, date
-diary_entries       → id, date, class_id, group_id, student_id(opcional), category, description, created_at_ms
-group_history       → id, group_id, class_id, date, description
-student_history     → id, student_id, date, from_group_id, to_group_id, description
-categories          → name (chave primária)
-app_meta            → id='singleton', is_demo (flag do banner de dados demonstrativos)
-```
+<!--
+  COMO TROCAR AS IMAGENS SEM CRIAR PASTA NO REPOSITORIO:
+  1. No GitHub, abra este README no modo de edicao (icone de lapis).
+  2. Arraste um print ou GIF para dentro do editor. O GitHub gera um link automatico.
+  3. Substitua a URL do placehold.co abaixo por esse link.
+  Dica: grave a tela com ScreenToGif ou LICEcap para gerar os GIFs.
+-->
 
-- **Login/autenticação**: a ausência proposital de tela de login nesta versão não impede adicionar depois — o Supabase já traz Auth pronto. Quando precisar, adicione login por e-mail/senha ou magic link, troque as políticas de RLS em `schema.sql` (hoje liberadas para a chave `anon`) por regras baseadas em `auth.uid()`, e envolva o `Router` com um guard de autenticação.
-- **Evoluir para uma stack com build** (React + TypeScript + Vite + Tailwind + shadcn/ui + Recharts + Framer Motion + React Hook Form + Zod, como sugerido originalmente): crie o projeto com `npm create vite@latest gestor-turmas -- --template react-ts` e porte cada componente deste arquivo (já são funções isoladas, sem dependências cruzadas complicadas) para `.tsx` dentro de `src/components`, `src/screens` e `src/services`, tipando as entidades acima como `interface`s TypeScript. A lógica de `actions` e de sincronização com o Supabase pode ser copiada quase sem alterações — o SDK `@supabase/supabase-js` é o mesmo em ambos os cenários.
+<img src="https://placehold.co/1000x560/0b1220/38bdf8/png?text=Dashboard%20%7C%20cards%20por%20dia%2C%20lideres%20e%20calendario&font=montserrat" width="92%" alt="Dashboard do Gestor de Turmas" />
 
-## O que está implementado
+<sub>Dashboard: totais gerais, cards por dia, lideres, representantes e calendario de eventos.</sub>
 
-- **Sem login** — abre direto no Dashboard.
-- **6 turmas fixas** (segunda a sábado), cada uma com **quantidade independente e editável de grupos** (criar, renomear, arquivar/excluir com proteção quando há alunos/histórico).
-- **Alunos** com nome, RGM (com validação de duplicidade), grupo atual, observações, histórico de grupos e histórico de notas.
-- **Reorganização de grupos** por formulário e por **arrastar e soltar** (quadro Kanban dentro da aba "Grupos" de cada turma).
-- **Líder de grupo** destacado com 🏆, alterável, com registro automático no histórico do grupo.
-- **Notas individuais** e **notas de grupo**, tratadas como entidades separadas.
-- **Diário da turma**, com data, turma, grupo (opcional) e aluno (opcional) — o contexto de grupo é gravado no momento do registro e nunca é reescrito se o aluno mudar de grupo depois, preservando o histórico corretamente. Categorias podem ser criadas livremente.
-- **Dashboard** com totais gerais, cards por dia (calculados dinamicamente), gráfico de alunos por dia, líderes atuais, ocorrências recentes e últimas alterações.
-- **Página da turma** com abas: Visão geral, Alunos, Grupos, Notas, Diário, Histórico.
-- **Perfil do grupo** com integrantes, notas, diário, histórico de entrada/saída de alunos e alterações do grupo (líder, nome, nota).
-- **Perfil do aluno** com evolução de notas em gráfico, histórico de grupos em linha do tempo e registros de diário.
-- **Busca global** por nome, RGM ou nome de grupo.
-- **Representantes de turma** (2 a 3 por dia, distintos do líder de grupo), numa aba própria no Dashboard.
-- **Contato por WhatsApp** direto do Dashboard: tanto para líderes de grupo quanto para representantes de turma, com um clique salva o número (uma vez) e, depois, abre a conversa direto.
-- **"Onde a professora está"**: uma anotação fixa por dia da semana, na tela inicial do Dashboard — fica salva até você editar de novo, não precisa reescrever toda semana.
-- **Calendário de eventos**, também na tela inicial do Dashboard: visão do mês, lista de próximos eventos e cadastro rápido clicando num dia.
-- **Ações rápidas** no topo: novo aluno, novo grupo, lançar nota, registrar diário, gerar relatório.
-- **Central de relatórios** com filtros (turma, grupo, aluno, categoria, data inicial/final) e **geração real de PDF** (jsPDF + autoTable) com resumo, tabela de alunos/notas e tabela de diário.
-- **Persistência real**: localStorage por padrão, com sincronização opcional a um **banco SQL (Postgres/Supabase)** configurável pela própria interface — veja seção 4 — para funcionar hospedado e em múltiplos dispositivos.
-- **Começa zerado** (sem alunos, grupos ou notas fictícios) — com um gerador de dados de exemplo totalmente opcional, só para teste, que nunca carrega sozinho.
-- Responsivo (sidebar colapsável em telas estreitas), com animações discretas de entrada, hover e modais, e validações de formulário com mensagens claras.
+<br/><br/>
+
+<img src="https://placehold.co/1000x560/0b1220/38bdf8/gif?text=GIF%20%7C%20arrastar%20e%20soltar%20alunos%20entre%20grupos&font=montserrat" width="92%" alt="Quadro Kanban de grupos com arrastar e soltar" />
+
+<sub>Reorganizacao de grupos em quadro Kanban, com arrastar e soltar.</sub>
+
+<br/><br/>
+
+<table>
+<tr>
+<td align="center" width="50%">
+<img src="https://placehold.co/600x360/0b1220/38bdf8/png?text=Perfil%20do%20aluno&font=montserrat" width="100%" alt="Perfil do aluno" />
+<br/><sub>Evolucao de notas e linha do tempo de grupos</sub>
+</td>
+<td align="center" width="50%">
+<img src="https://placehold.co/600x360/0b1220/38bdf8/png?text=Relatorio%20em%20PDF&font=montserrat" width="100%" alt="Relatorio em PDF" />
+<br/><sub>Resumo, tabela de notas e tabela de diario</sub>
+</td>
+</tr>
+</table>
+
+</div>
+
+<br/>
+
+## Recursos
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### Estrutura
+
+- **6 turmas fixas** (segunda a sabado), cada uma com quantidade independente de grupos
+- **Grupos editaveis**: criar, renomear, arquivar ou excluir, com protecao quando ha alunos ou historico
+- **Alunos** com nome, RGM (validacao de duplicidade), grupo atual e observacoes
+- **Lider de grupo** destacado com trofeu, alteravel, com registro automatico no historico
+- **Representantes de turma** (2 a 3 por dia, distintos do lider de grupo)
+
+</td>
+<td width="50%" valign="top">
+
+### Acompanhamento
+
+- **Notas individuais e de grupo** tratadas como entidades separadas
+- **Diario da turma** com data, turma, grupo e aluno opcionais, sem reescrever o contexto se o aluno trocar de grupo
+- **Categorias livres** para o diario
+- **Historico completo** de grupos, notas, lideres e alteracoes
+- **Busca global** por nome, RGM ou nome de grupo
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### Painel e rotina
+
+- **Dashboard** com totais, cards por dia, grafico de alunos por dia, lideres atuais e ocorrencias recentes
+- **Onde a professora esta**: anotacao fixa por dia da semana
+- **Calendario de eventos** com visao do mes, proximos eventos e cadastro rapido
+- **WhatsApp com um clique** para lideres e representantes
+- **Acoes rapidas**: novo aluno, novo grupo, lancar nota, registrar diario, gerar relatorio
+
+</td>
+<td width="50%" valign="top">
+
+### Dados e relatorios
+
+- **Central de relatorios** com filtros de turma, grupo, aluno, categoria e periodo
+- **PDF real** com jsPDF e autoTable
+- **Persistencia local** em `localStorage`, funcionando offline
+- **Sincronizacao opcional** com Postgres via Supabase
+- **Responsivo**, com sidebar colapsavel e animacoes discretas
+
+</td>
+</tr>
+</table>
+
+<br/>
 
 ## Fluxo principal
 
-```
-Dashboard → escolher dia → grupos → alunos → transferir/editar → lançar nota
-→ registrar diário → (grupo/aluno) histórico → Relatórios → Gerar PDF
+```mermaid
+flowchart LR
+    A[Dashboard] --> B[Escolher dia]
+    B --> C[Grupos]
+    C --> D[Alunos]
+    D --> E[Transferir ou editar]
+    E --> F[Lancar nota]
+    F --> G[Registrar diario]
+    G --> H[Historico]
+    H --> I[Relatorios]
+    I --> J[Gerar PDF]
+
+    style A fill:#0b1220,stroke:#38bdf8,color:#ffffff
+    style J fill:#1d4ed8,stroke:#38bdf8,color:#ffffff
 ```
 
-Qualquer alteração de estrutura — adicionar/remover grupo, mudar quantidade de grupos por dia, transferir aluno, trocar líder — é feita inteiramente pela interface, sem precisar mexer em código.
+Qualquer alteracao de estrutura, como adicionar ou remover grupo, mudar a quantidade de grupos por dia, transferir aluno ou trocar lider, e feita inteiramente pela interface, sem mexer em codigo.
+
+<br/>
+
+## Conteudo da entrega
+
+```text
+gestor-de-turmas
+  index.html     o sistema em si (abra para usar)
+  schema.sql     script para criar o banco real no Supabase (opcional)
+  README.md      este arquivo
+```
+
+<br/>
+
+## Como instalar
+
+Nao ha instalacao obrigatoria. O `index.html` e um unico arquivo autocontido que carrega **React, Chart.js, jsPDF** e, se voce conectar um banco, o **SDK do Supabase** a partir de CDNs publicas no momento em que e aberto. Basta salvar o arquivo em qualquer pasta do computador ou hospeda-lo em qualquer lugar.
+
+## Como executar
+
+De duplo clique no `index.html` ou abra com Chrome, Edge ou Firefox. A internet so e necessaria para carregar as bibliotecas na primeira abertura, depois elas ficam em cache. Nenhum dado seu e enviado para fora do computador, tudo roda localmente.
+
+Se preferir servir por um servidor local (opcional, evita particularidades de `file://` em alguns navegadores):
+
+```bash
+npx serve .
+```
+
+Depois acesse o endereco indicado, por exemplo `http://localhost:3000`.
+
+## Como gerar build
+
+Nao ha etapa de build. O arquivo ja e o produto final, por isso a entrega nao depende de `npm install`, Vite ou TypeScript compilado. A escolha foi deliberada, para que o sistema abra e funcione imediatamente em qualquer computador, sem exigir Node.js. Veja [Evolucao](#evolucao) para o caminho rumo a uma stack com build.
+
+<br/>
+
+## Onde ficam os dados
+
+Por padrao, tudo e salvo no `localStorage` do navegador, sob a chave `gestor_turmas_v1`. E rapido e funciona offline, mas os dados ficam presos aquele navegador e computador. Se voce hospedar o `index.html` e acessar de outro dispositivo, ele nao vera o que foi salvo no primeiro.
+
+| Item | Onde fica |
+| --- | --- |
+| Modo local | chave `gestor_turmas_v1` no `localStorage`, como um unico objeto JSON |
+| Credenciais do banco | chave `gestor_turmas_sb_config` no `localStorage`, enviada apenas ao proprio Supabase |
+| Backup do modo local | Console (F12): `copy(localStorage.getItem('gestor_turmas_v1'))` |
+| Backup do modo SQL | Table Editor ou SQL Editor do projeto Supabase |
+
+Toda a logica de leitura e escrita fica isolada nas secoes comentadas **CAMADA DE ARMAZENAMENTO** e **SINCRONIZACAO COM BANCO SQL**, no topo do arquivo. Nenhum componente de tela acessa `localStorage` ou Supabase diretamente, todos passam pelas `actions.*` do componente `App`.
+
+<br/>
+
+## Modo com banco SQL real
+
+Recomendado se for hospedar ou acessar de mais de um aparelho. O sistema sincroniza com **Postgres via Supabase**, gratuitamente e sem mexer em codigo, tudo pela interface.
+
+<table>
+<tr>
+<td width="8%" align="center"><img src="https://img.shields.io/badge/1-1d4ed8?style=flat-square&labelColor=0b1220" alt="1" /></td>
+<td>Crie uma conta gratuita em <b>supabase.com</b> e um novo projeto (cerca de 2 minutos para provisionar).</td>
+</tr>
+<tr>
+<td align="center"><img src="https://img.shields.io/badge/2-1d4ed8?style=flat-square&labelColor=0b1220" alt="2" /></td>
+<td>Abra <b>SQL Editor</b>, cole todo o conteudo do <code>schema.sql</code> e clique em <b>Run</b>. As tabelas sao criadas ja com as 6 turmas e as categorias padrao do diario.</td>
+</tr>
+<tr>
+<td align="center"><img src="https://img.shields.io/badge/3-1d4ed8?style=flat-square&labelColor=0b1220" alt="3" /></td>
+<td>Em <b>Project Settings, API</b>, copie a <b>Project URL</b> e a chave <b>anon public</b>.</td>
+</tr>
+<tr>
+<td align="center"><img src="https://img.shields.io/badge/4-1d4ed8?style=flat-square&labelColor=0b1220" alt="4" /></td>
+<td>No Gestor de Turmas, clique no icone de banco de dados na barra lateral (ou em <b>Relatorios, Conectar banco de dados</b>), cole a URL e a chave e clique em <b>Conectar</b>.</td>
+</tr>
+</table>
+
+A partir dai, toda alteracao e salva automaticamente no banco. Qualquer navegador ou dispositivo conectado com a mesma URL e chave le e escreve nos mesmos dados, o que permite hospedar o sistema em Vercel, Netlify ou GitHub Pages com persistencia de verdade.
+
+Se o banco cair, estiver mal configurado ou voce estiver offline, o sistema avisa (o icone fica vermelho) e continua funcionando normalmente com o `localStorage`. Nada trava.
+
+> **Seguranca.** Como nao ha tela de login (por desenho, pensado para uma unica pessoa), o `schema.sql` libera leitura e escrita para a chave `anon` sem autenticacao. Isso e adequado para uso pessoal, mas qualquer pessoa que descubra sua URL e chave tambem poderia alterar os dados. **Nao publique essas credenciais** em lugares publicos, como um repositorio GitHub publico.
+
+### Modelo de dados
+
+Entidades mapeadas 1:1 entre o app (camelCase) e as tabelas SQL (snake_case) em `schema.sql`.
+
+```mermaid
+erDiagram
+    classes ||--o{ groups : possui
+    classes ||--o{ students : possui
+    groups ||--o{ students : reune
+    students ||--o{ individual_grades : recebe
+    groups ||--o{ group_grades_history : recebe
+    classes ||--o{ diary_entries : registra
+    categories ||--o{ diary_entries : classifica
+    groups ||--o{ group_history : tem
+    students ||--o{ student_history : tem
+
+    classes {
+        text id
+        text name
+        int day_index
+    }
+    groups {
+        text id
+        text class_id
+        text name
+        text status
+        text leader_id
+        numeric group_grade
+    }
+    students {
+        text id
+        text name
+        text rgm
+        text class_id
+        text group_id
+        text status
+    }
+    individual_grades {
+        text id
+        text student_id
+        numeric value
+        text label
+        date date
+    }
+    diary_entries {
+        text id
+        date date
+        text class_id
+        text group_id
+        text student_id
+        text category
+        text description
+    }
+```
+
+Tabelas auxiliares: `categories` (chave primaria `name`) e `app_meta` (`id = 'singleton'`, com a flag `is_demo` do banner de dados demonstrativos).
+
+<br/>
+
+## Dados de exemplo
+
+O sistema abre **zerado**: as 6 turmas e as categorias padrao do diario ja existem, mas sem grupos, alunos, notas ou registros ficticios. Voce cadastra a turma real pela interface (**Acoes rapidas, Novo aluno / Novo grupo**, ou dentro de cada turma).
+
+Para apenas testar, ha um gerador opcional em **Relatorios, Zona de dados, Carregar dados de exemplo**. Ele substitui tudo por alunos, grupos e notas ficticios e exibe o aviso **DADOS DEMONSTRATIVOS** enquanto estiverem ativos. Depois, use **Limpar tudo e comecar do zero** para voltar ao estado vazio. O gerador fica na funcao `seedDatabase()` e so roda quando voce clica no botao.
+
+<br/>
+
+## Evolucao
+
+| Caminho | Como |
+| --- | --- |
+| Escritas mais granulares | Cada acao (`addStudent`, `transferStudent`, `setLeader` e outras) ja faz sua propria escrita no Supabase, entao da para trocar um upsert por uma stored procedure no Postgres regra por regra |
+| Login e autenticacao | Adicione Auth do Supabase (e-mail e senha ou magic link), troque as politicas de RLS do `schema.sql` por regras com `auth.uid()` e envolva o Router com um guard de autenticacao |
+| Stack com build | `npm create vite@latest gestor-turmas -- --template react-ts` e porte os componentes para `src/components`, `src/screens` e `src/services`, tipando as entidades como interfaces TypeScript |
+
+Stack sugerida para a versao com build: **React, TypeScript, Vite, Tailwind, shadcn/ui, Recharts, Framer Motion, React Hook Form e Zod**. A logica de `actions` e de sincronizacao com o Supabase pode ser copiada quase sem alteracoes, pois o `@supabase/supabase-js` e o mesmo nos dois cenarios.
+
+<br/>
+
+## Tecnologias
+
+<div align="center">
+
+<img src="https://skillicons.dev/icons?i=html,css,js,react,supabase,postgres,git,github&theme=dark" alt="Tecnologias utilizadas" />
+
+</div>
+
+<br/>
+
+## Autor
+
+<div align="center">
+
+**Cicero Kaue Alves da Silva**
+<br/>
+Estudante de Engenharia de Software
+
+<a href="https://github.com/callmekaue">
+  <img src="https://img.shields.io/badge/GitHub-callmekaue-0b1220?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+</a>
+
+</div>
+
+<br/>
+
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:38bdf8,50:1d4ed8,100:0b1220&height=140&section=footer&reversal=true" alt="" />
