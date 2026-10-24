@@ -1,68 +1,67 @@
+<!--
+  Os arquivos de imagem citados aqui (pacora-*.png, shot-*.png e demo-*.gif)
+  ficam na raiz do repositório, ao lado deste README. Nenhuma pasta é necessária.
+-->
+
 <div align="center">
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0b1220,50:1d4ed8,100:38bdf8&height=260&section=header&text=Gestor%20de%20Turmas&fontSize=64&fontColor=ffffff&fontAlignY=38&animation=fadeIn&desc=Central%20de%20controle%20para%20representantes%20de%20turma&descSize=20&descAlignY=60" alt="Gestor de Turmas" />
+<img src="./pacora-banner.png" alt="Pacora, gestor de turmas" width="100%" />
 
-<a href="https://github.com/callmekaue/gestor-de-turmas">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3200&pause=900&color=38BDF8&center=true&vCenter=true&width=760&height=48&lines=6+turmas%2C+de+segunda+a+s%C3%A1bado;Grupos+din%C3%A2micos+com+arrastar+e+soltar;Notas+individuais+e+de+grupo;Di%C3%A1rio+da+turma+com+hist%C3%B3rico+fiel;Relat%C3%B3rios+reais+em+PDF;Um+%C3%BAnico+arquivo.+Abriu%2C+funcionou." alt="Animacao de destaques do projeto" />
-</a>
+<br/><br/>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./pacora-logo-dark.png">
+  <img src="./pacora-logo.png" alt="Pacora" width="360">
+</picture>
+
+<br/><br/>
+
+**Turmas, grupos, notas e relatórios em um só lugar.**
+<br/>
+Um sistema para o representante de turma organizar a semana inteira, de segunda a sábado.
 
 <br/>
 
-<img src="https://img.shields.io/badge/React-18-0b1220?style=for-the-badge&logo=react&logoColor=38bdf8" alt="React" />
-<img src="https://img.shields.io/badge/Chart.js-graficos-0b1220?style=for-the-badge&logo=chartdotjs&logoColor=ff6384" alt="Chart.js" />
-<img src="https://img.shields.io/badge/jsPDF-relatorios-0b1220?style=for-the-badge&logo=adobeacrobatreader&logoColor=ef4444" alt="jsPDF" />
-<img src="https://img.shields.io/badge/Supabase-Postgres-0b1220?style=for-the-badge&logo=supabase&logoColor=3ecf8e" alt="Supabase" />
-<img src="https://img.shields.io/badge/Build-nenhum-0b1220?style=for-the-badge&logo=html5&logoColor=e34f26" alt="Sem build" />
+<img src="https://img.shields.io/badge/React-18-0A1F5C?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+<img src="https://img.shields.io/badge/Supabase-Auth%20%2B%20Postgres-0A1F5C?style=for-the-badge&logo=supabase&logoColor=3ECF8E" alt="Supabase" />
+<img src="https://img.shields.io/badge/Chart.js-gr%C3%A1ficos-0A1F5C?style=for-the-badge&logo=chartdotjs&logoColor=FF6384" alt="Chart.js" />
+<img src="https://img.shields.io/badge/Arquivo%20%C3%BAnico-sem%20build-1D4FD8?style=for-the-badge&logo=html5&logoColor=white" alt="Arquivo único" />
 
 <br/><br/>
 
-<img src="https://img.shields.io/github/stars/callmekaue/gestor-de-turmas?style=flat-square&color=1d4ed8&labelColor=0b1220" alt="Stars" />
-<img src="https://img.shields.io/github/forks/callmekaue/gestor-de-turmas?style=flat-square&color=1d4ed8&labelColor=0b1220" alt="Forks" />
-<img src="https://img.shields.io/github/last-commit/callmekaue/gestor-de-turmas?style=flat-square&color=1d4ed8&labelColor=0b1220" alt="Ultimo commit" />
-<img src="https://img.shields.io/github/repo-size/callmekaue/gestor-de-turmas?style=flat-square&color=1d4ed8&labelColor=0b1220" alt="Tamanho" />
-
-<br/><br/>
-
-[Sobre](#sobre) &nbsp;|&nbsp;
-[Preview](#preview) &nbsp;|&nbsp;
-[Recursos](#recursos) &nbsp;|&nbsp;
-[Fluxo](#fluxo-principal) &nbsp;|&nbsp;
-[Instalacao](#como-instalar) &nbsp;|&nbsp;
-[Dados](#onde-ficam-os-dados) &nbsp;|&nbsp;
-[Banco SQL](#modo-com-banco-sql-real) &nbsp;|&nbsp;
-[Evolucao](#evolucao)
+[Sobre](#sobre) &nbsp;|&nbsp; [O sistema em uso](#o-sistema-em-uso) &nbsp;|&nbsp; [Recursos](#recursos) &nbsp;|&nbsp; [Acesso e permissões](#acesso-e-permissões) &nbsp;|&nbsp; [Publicar](#como-publicar) &nbsp;|&nbsp; [Banco de dados](#banco-de-dados)
 
 </div>
 
 <br/>
-
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:1d4ed8,100:38bdf8&height=3&section=header" width="100%" alt="" />
 
 ## Sobre
 
-O **Gestor de Turmas** e um sistema feito para o representante administrar, em um so lugar, as **6 turmas da semana (segunda a sabado)**. Ele organiza grupos dinamicos, alunos, lideres, notas individuais e de grupo, diario de ocorrencias e gera relatorios em PDF, tudo sem tela de login e sem etapa de instalacao.
+A **Pacora** é uma central de controle para o representante administrar as **6 turmas da semana**. Em vez de planilhas e anotações soltas, tudo fica em um só lugar: grupos dinâmicos, alunos, líderes, três tipos de nota, diário de ocorrências, relatórios em PDF e um registro de tudo que foi alterado.
+
+O sistema é um único arquivo `index.html`. Não tem instalação nem etapa de build: basta publicar o arquivo e conectar um projeto Supabase gratuito.
 
 <table>
 <tr>
-<td width="33%" align="center">
+<td width="33%" valign="top">
 
-<img src="https://img.shields.io/badge/01-ABRIR-1d4ed8?style=for-the-badge&labelColor=0b1220" alt="Abrir" />
+**Organizado**
 
-Duplo clique no `index.html`. Nao ha `npm install`, nem build.
-
-</td>
-<td width="33%" align="center">
-
-<img src="https://img.shields.io/badge/02-USAR-1d4ed8?style=for-the-badge&labelColor=0b1220" alt="Usar" />
-
-Cadastre turmas, grupos e alunos direto pela interface.
+Turmas de segunda a sábado, grupos que podem ser reorganizados por arrastar e soltar, líderes e representantes em destaque.
 
 </td>
-<td width="33%" align="center">
+<td width="33%" valign="top">
 
-<img src="https://img.shields.io/badge/03-RELATAR-1d4ed8?style=for-the-badge&labelColor=0b1220" alt="Relatar" />
+**Justo**
 
-Filtre por turma, grupo, aluno e periodo e gere o PDF.
+Nota individual, nota individual do grupo e nota do grupo ficam separadas. A média do grupo usa só a nota individual do grupo.
+
+</td>
+<td width="33%" valign="top">
+
+**Seguro**
+
+Login por usuário, dois níveis de acesso, regras de segurança no banco e registro de atividades visível apenas ao administrador.
 
 </td>
 </tr>
@@ -70,44 +69,71 @@ Filtre por turma, grupo, aluno e periodo e gere o PDF.
 
 <br/>
 
-## Preview
+## O sistema em uso
+
+### Visão geral e grupos
 
 <div align="center">
+<img src="./demo-tour.gif" alt="Navegando pelo dashboard, pela turma e reorganizando grupos com arrastar e soltar" width="92%" />
+<br/><sub>Dashboard, turma da segunda-feira e quadro de grupos com arrastar e soltar.</sub>
+</div>
 
-<!--
-  COMO TROCAR AS IMAGENS SEM CRIAR PASTA NO REPOSITORIO:
-  1. No GitHub, abra este README no modo de edicao (icone de lapis).
-  2. Arraste um print ou GIF para dentro do editor. O GitHub gera um link automatico.
-  3. Substitua a URL do placehold.co abaixo por esse link.
-  Dica: grave a tela com ScreenToGif ou LICEcap para gerar os GIFs.
--->
+<br/>
 
-<img src="https://placehold.co/1000x560/0b1220/38bdf8/png?text=Dashboard%20%7C%20cards%20por%20dia%2C%20lideres%20e%20calendario&font=montserrat" width="92%" alt="Dashboard do Gestor de Turmas" />
+### Notas e média do grupo
 
-<sub>Dashboard: totais gerais, cards por dia, lideres, representantes e calendario de eventos.</sub>
+<div align="center">
+<img src="./demo-notas.gif" alt="Lançando notas individuais do grupo e calculando a média do grupo" width="92%" />
+<br/><sub>Notas individuais do grupo lançadas dentro do grupo e cálculo automático da média (quem não tem nota conta zero).</sub>
+</div>
 
-<br/><br/>
+<br/>
 
-<img src="https://placehold.co/1000x560/0b1220/38bdf8/gif?text=GIF%20%7C%20arrastar%20e%20soltar%20alunos%20entre%20grupos&font=montserrat" width="92%" alt="Quadro Kanban de grupos com arrastar e soltar" />
+### Todos os alunos
 
-<sub>Reorganizacao de grupos em quadro Kanban, com arrastar e soltar.</sub>
+<div align="center">
+<img src="./demo-alunos.gif" alt="Busca e filtros na listagem de todos os alunos" width="92%" />
+<br/><sub>Listagem geral em ordem alfabética, com busca por nome ou RGM e filtros por dia e grupo.</sub>
+</div>
 
-<br/><br/>
+<br/>
+
+### Tema escuro e tema claro
+
+<div align="center">
+<img src="./demo-tema.gif" alt="Alternando entre o tema escuro e o tema claro" width="92%" />
+<br/><sub>O padrão é o azul-marinho com degradê royal. Um botão muda para o tema claro.</sub>
+</div>
+
+<br/>
+
+### No celular
+
+<div align="center">
+<img src="./demo-celular.gif" alt="Sistema no celular, com barra de navegação inferior" width="300" />
+<br/><sub>Barra de navegação inferior, tabelas em cartões e janelas que abrem de baixo para cima.</sub>
+</div>
+
+<br/>
+
+### Capturas de tela
 
 <table>
 <tr>
-<td align="center" width="50%">
-<img src="https://placehold.co/600x360/0b1220/38bdf8/png?text=Perfil%20do%20aluno&font=montserrat" width="100%" alt="Perfil do aluno" />
-<br/><sub>Evolucao de notas e linha do tempo de grupos</sub>
-</td>
-<td align="center" width="50%">
-<img src="https://placehold.co/600x360/0b1220/38bdf8/png?text=Relatorio%20em%20PDF&font=montserrat" width="100%" alt="Relatorio em PDF" />
-<br/><sub>Resumo, tabela de notas e tabela de diario</sub>
-</td>
+<td width="50%"><img src="./shot-dashboard.png" alt="Dashboard" /><br/><sub>Dashboard</sub></td>
+<td width="50%"><img src="./shot-turma.png" alt="Grupos da turma" /><br/><sub>Grupos da turma</sub></td>
+</tr>
+<tr>
+<td width="50%"><img src="./shot-notas.png" alt="Notas do grupo" /><br/><sub>Notas do grupo</sub></td>
+<td width="50%"><img src="./shot-alunos.png" alt="Todos os alunos" /><br/><sub>Todos os alunos</sub></td>
+</tr>
+<tr>
+<td width="50%"><img src="./shot-claro.png" alt="Tema claro" /><br/><sub>Tema claro</sub></td>
+<td width="50%" align="center"><img src="./shot-celular.png" alt="Versão para celular" width="45%" /><br/><sub>Celular</sub></td>
 </tr>
 </table>
 
-</div>
+<sub>As capturas usam os dados de exemplo do próprio sistema, por isso aparece o aviso de dados demonstrativos.</sub>
 
 <br/>
 
@@ -117,157 +143,96 @@ Filtre por turma, grupo, aluno e periodo e gere o PDF.
 <tr>
 <td width="50%" valign="top">
 
-### Estrutura
+### Turmas e pessoas
 
-- **6 turmas fixas** (segunda a sabado), cada uma com quantidade independente de grupos
-- **Grupos editaveis**: criar, renomear, arquivar ou excluir, com protecao quando ha alunos ou historico
-- **Alunos** com nome, RGM (validacao de duplicidade), grupo atual e observacoes
-- **Lider de grupo** destacado com trofeu, alteravel, com registro automatico no historico
-- **Representantes de turma** (2 a 3 por dia, distintos do lider de grupo)
+- 6 turmas fixas, cada uma com quantidade própria de grupos
+- Grupos em ordem natural (G1, G2 ... G10) e alunos em ordem alfabética
+- Alunos com nome, RGM e histórico de grupos
+- Líder de grupo e representantes de turma
+- Listagem **Todos os alunos** com busca e filtros
+- Onde a professora está e calendário de eventos
 
 </td>
 <td width="50%" valign="top">
 
-### Acompanhamento
+### Notas e diário
 
-- **Notas individuais e de grupo** tratadas como entidades separadas
-- **Diario da turma** com data, turma, grupo e aluno opcionais, sem reescrever o contexto se o aluno trocar de grupo
-- **Categorias livres** para o diario
-- **Historico completo** de grupos, notas, lideres e alteracoes
-- **Busca global** por nome, RGM ou nome de grupo
+- **Nota individual**, **nota individual do grupo** e **nota do grupo**
+- Notas lançadas, editadas e removidas com confirmação
+- Lançamento das notas dos integrantes direto no card do grupo
+- Média do grupo calculada pelas notas individuais do grupo
+- Diário da turma e do grupo, com edição dos registros
 
 </td>
 </tr>
 <tr>
 <td width="50%" valign="top">
 
-### Painel e rotina
+### Relatórios
 
-- **Dashboard** com totais, cards por dia, grafico de alunos por dia, lideres atuais e ocorrencias recentes
-- **Onde a professora esta**: anotacao fixa por dia da semana
-- **Calendario de eventos** com visao do mes, proximos eventos e cadastro rapido
-- **WhatsApp com um clique** para lideres e representantes
-- **Acoes rapidas**: novo aluno, novo grupo, lancar nota, registrar diario, gerar relatorio
+- PDF por turma, grupo ou aluno, com a logo da Pacora
+- As três notas aparecem separadas e a regra da média vem explicada
+- Tabela de grupos com a média e a nota coletiva
+- Alunos sempre em ordem alfabética
 
 </td>
 <td width="50%" valign="top">
 
-### Dados e relatorios
+### Administração
 
-- **Central de relatorios** com filtros de turma, grupo, aluno, categoria e periodo
-- **PDF real** com jsPDF e autoTable
-- **Persistencia local** em `localStorage`, funcionando offline
-- **Sincronizacao opcional** com Postgres via Supabase
-- **Responsivo**, com sidebar colapsavel e animacoes discretas
+- Painel do administrador com usuários, convites e conexão
+- Registro de atividades: quem lançou, editou ou apagou cada nota
+- Tema escuro e claro, com a escolha salva
+- Layout pensado para celular
 
 </td>
 </tr>
 </table>
 
-<br/>
-
-## Fluxo principal
+### Regra das notas
 
 ```mermaid
 flowchart LR
-    A[Dashboard] --> B[Escolher dia]
-    B --> C[Grupos]
-    C --> D[Alunos]
-    D --> E[Transferir ou editar]
-    E --> F[Lancar nota]
-    F --> G[Registrar diario]
-    G --> H[Historico]
-    H --> I[Relatorios]
-    I --> J[Gerar PDF]
-
-    style A fill:#0b1220,stroke:#38bdf8,color:#ffffff
-    style J fill:#1d4ed8,stroke:#38bdf8,color:#ffffff
+    A[Nota individual do aluno] -->|não entra na média| X[ ]
+    B[Nota individual do grupo<br/>de cada integrante] --> M[Média do grupo]
+    M --> G[Nota do grupo]
+    style X fill:none,stroke:none
+    style M fill:#1D4FD8,stroke:#3D7BFF,color:#ffffff
 ```
 
-Qualquer alteracao de estrutura, como adicionar ou remover grupo, mudar a quantidade de grupos por dia, transferir aluno ou trocar lider, e feita inteiramente pela interface, sem mexer em codigo.
+A média do grupo soma a nota individual do grupo de cada integrante e divide pelo total de integrantes. Quem não tem nota lançada conta como 0. A nota individual do aluno é uma avaliação à parte e não participa dessa conta.
 
 <br/>
 
-## Conteudo da entrega
+## Acesso e permissões
 
-```text
-gestor-de-turmas
-  index.html     o sistema em si (abra para usar)
-  schema.sql     script para criar o banco real no Supabase (opcional)
-  README.md      este arquivo
-```
+O acesso é feito por login, com dois níveis:
 
-<br/>
-
-## Como instalar
-
-Nao ha instalacao obrigatoria. O `index.html` e um unico arquivo autocontido que carrega **React, Chart.js, jsPDF** e, se voce conectar um banco, o **SDK do Supabase** a partir de CDNs publicas no momento em que e aberto. Basta salvar o arquivo em qualquer pasta do computador ou hospeda-lo em qualquer lugar.
-
-## Como executar
-
-De duplo clique no `index.html` ou abra com Chrome, Edge ou Firefox. A internet so e necessaria para carregar as bibliotecas na primeira abertura, depois elas ficam em cache. Nenhum dado seu e enviado para fora do computador, tudo roda localmente.
-
-Se preferir servir por um servidor local (opcional, evita particularidades de `file://` em alguns navegadores):
-
-```bash
-npx serve .
-```
-
-Depois acesse o endereco indicado, por exemplo `http://localhost:3000`.
-
-## Como gerar build
-
-Nao ha etapa de build. O arquivo ja e o produto final, por isso a entrega nao depende de `npm install`, Vite ou TypeScript compilado. A escolha foi deliberada, para que o sistema abra e funcione imediatamente em qualquer computador, sem exigir Node.js. Veja [Evolucao](#evolucao) para o caminho rumo a uma stack com build.
-
-<br/>
-
-## Onde ficam os dados
-
-Por padrao, tudo e salvo no `localStorage` do navegador, sob a chave `gestor_turmas_v1`. E rapido e funciona offline, mas os dados ficam presos aquele navegador e computador. Se voce hospedar o `index.html` e acessar de outro dispositivo, ele nao vera o que foi salvo no primeiro.
-
-| Item | Onde fica |
+| Nível | O que pode fazer |
 | --- | --- |
-| Modo local | chave `gestor_turmas_v1` no `localStorage`, como um unico objeto JSON |
-| Credenciais do banco | chave `gestor_turmas_sb_config` no `localStorage`, enviada apenas ao proprio Supabase |
-| Backup do modo local | Console (F12): `copy(localStorage.getItem('gestor_turmas_v1'))` |
-| Backup do modo SQL | Table Editor ou SQL Editor do projeto Supabase |
+| **Administrador** | Tudo o que o representante faz, mais o painel do ADM: convidar e gerenciar usuários, configurar a conexão, sincronizar, consultar o registro de atividades e usar **Apagar os dados** |
+| **Representante** | Gerenciar turmas, alunos, grupos, notas e diário. Não vê o painel e não apaga os dados do sistema |
 
-Toda a logica de leitura e escrita fica isolada nas secoes comentadas **CAMADA DE ARMAZENAMENTO** e **SINCRONIZACAO COM BANCO SQL**, no topo do arquivo. Nenhum componente de tela acessa `localStorage` ou Supabase diretamente, todos passam pelas `actions.*` do componente `App`.
+**Convite com senha própria.** O administrador gera um convite com um link. O usuário abre o link, confere o e-mail e o código e cria a própria senha. Ninguém vê a senha, nem o administrador.
+
+**Conexão embutida.** O administrador configura a URL e a chave `anon` uma única vez e baixa pelo painel um `index.html` com a conexão embutida. Depois de publicado, os usuários só digitam e-mail e senha.
 
 <br/>
 
-## Modo com banco SQL real
+## Como publicar
 
-Recomendado se for hospedar ou acessar de mais de um aparelho. O sistema sincroniza com **Postgres via Supabase**, gratuitamente e sem mexer em codigo, tudo pela interface.
+1. Crie um projeto gratuito no [Supabase](https://supabase.com) e rode o `schema.sql` no **SQL Editor**.
+2. Publique o `index.html` em qualquer hospedagem estática (GitHub Pages, Netlify, Vercel).
+3. Crie o primeiro usuário em **Authentication, Users** (ele vira administrador) e entre pelo endereço publicado.
+4. No **Painel do ADM**, gere o arquivo com a conexão embutida, publique-o no lugar do atual e convide os representantes.
 
-<table>
-<tr>
-<td width="8%" align="center"><img src="https://img.shields.io/badge/1-1d4ed8?style=flat-square&labelColor=0b1220" alt="1" /></td>
-<td>Crie uma conta gratuita em <b>supabase.com</b> e um novo projeto (cerca de 2 minutos para provisionar).</td>
-</tr>
-<tr>
-<td align="center"><img src="https://img.shields.io/badge/2-1d4ed8?style=flat-square&labelColor=0b1220" alt="2" /></td>
-<td>Abra <b>SQL Editor</b>, cole todo o conteudo do <code>schema.sql</code> e clique em <b>Run</b>. As tabelas sao criadas ja com as 6 turmas e as categorias padrao do diario.</td>
-</tr>
-<tr>
-<td align="center"><img src="https://img.shields.io/badge/3-1d4ed8?style=flat-square&labelColor=0b1220" alt="3" /></td>
-<td>Em <b>Project Settings, API</b>, copie a <b>Project URL</b> e a chave <b>anon public</b>.</td>
-</tr>
-<tr>
-<td align="center"><img src="https://img.shields.io/badge/4-1d4ed8?style=flat-square&labelColor=0b1220" alt="4" /></td>
-<td>No Gestor de Turmas, clique no icone de banco de dados na barra lateral (ou em <b>Relatorios, Conectar banco de dados</b>), cole a URL e a chave e clique em <b>Conectar</b>.</td>
-</tr>
-</table>
+Para testar sem banco, o sistema também tem um modo local, com dados de exemplo opcionais, que salva apenas no navegador.
 
-A partir dai, toda alteracao e salva automaticamente no banco. Qualquer navegador ou dispositivo conectado com a mesma URL e chave le e escreve nos mesmos dados, o que permite hospedar o sistema em Vercel, Netlify ou GitHub Pages com persistencia de verdade.
+<br/>
 
-Se o banco cair, estiver mal configurado ou voce estiver offline, o sistema avisa (o icone fica vermelho) e continua funcionando normalmente com o `localStorage`. Nada trava.
+## Banco de dados
 
-> **Seguranca.** Como nao ha tela de login (por desenho, pensado para uma unica pessoa), o `schema.sql` libera leitura e escrita para a chave `anon` sem autenticacao. Isso e adequado para uso pessoal, mas qualquer pessoa que descubra sua URL e chave tambem poderia alterar os dados. **Nao publique essas credenciais** em lugares publicos, como um repositorio GitHub publico.
-
-### Modelo de dados
-
-Entidades mapeadas 1:1 entre o app (camelCase) e as tabelas SQL (snake_case) em `schema.sql`.
+O `schema.sql` cria as tabelas, os perfis de acesso, o registro de atividades e as políticas de segurança (RLS). A chave `anon` não é uma credencial de administrador, e a chave `service_role` nunca é usada no navegador.
 
 ```mermaid
 erDiagram
@@ -277,79 +242,25 @@ erDiagram
     students ||--o{ individual_grades : recebe
     groups ||--o{ group_grades_history : recebe
     classes ||--o{ diary_entries : registra
-    categories ||--o{ diary_entries : classifica
-    groups ||--o{ group_history : tem
-    students ||--o{ student_history : tem
-
-    classes {
-        text id
-        text name
-        int day_index
-    }
-    groups {
-        text id
-        text class_id
-        text name
-        text status
-        text leader_id
-        numeric group_grade
-    }
-    students {
-        text id
-        text name
-        text rgm
-        text class_id
-        text group_id
-        text status
-    }
-    individual_grades {
-        text id
-        text student_id
-        numeric value
-        text label
-        date date
-    }
-    diary_entries {
-        text id
-        date date
-        text class_id
-        text group_id
-        text student_id
-        text category
-        text description
-    }
+    profiles ||--o{ audit_log : gera
+    invites }o--|| profiles : origina
 ```
 
-Tabelas auxiliares: `categories` (chave primaria `name`) e `app_meta` (`id = 'singleton'`, com a flag `is_demo` do banner de dados demonstrativos).
-
-<br/>
-
-## Dados de exemplo
-
-O sistema abre **zerado**: as 6 turmas e as categorias padrao do diario ja existem, mas sem grupos, alunos, notas ou registros ficticios. Voce cadastra a turma real pela interface (**Acoes rapidas, Novo aluno / Novo grupo**, ou dentro de cada turma).
-
-Para apenas testar, ha um gerador opcional em **Relatorios, Zona de dados, Carregar dados de exemplo**. Ele substitui tudo por alunos, grupos e notas ficticios e exibe o aviso **DADOS DEMONSTRATIVOS** enquanto estiverem ativos. Depois, use **Limpar tudo e comecar do zero** para voltar ao estado vazio. O gerador fica na funcao `seedDatabase()` e so roda quando voce clica no botao.
-
-<br/>
-
-## Evolucao
-
-| Caminho | Como |
+| Tabela | Função |
 | --- | --- |
-| Escritas mais granulares | Cada acao (`addStudent`, `transferStudent`, `setLeader` e outras) ja faz sua propria escrita no Supabase, entao da para trocar um upsert por uma stored procedure no Postgres regra por regra |
-| Login e autenticacao | Adicione Auth do Supabase (e-mail e senha ou magic link), troque as politicas de RLS do `schema.sql` por regras com `auth.uid()` e envolva o Router com um guard de autenticacao |
-| Stack com build | `npm create vite@latest gestor-turmas -- --template react-ts` e porte os componentes para `src/components`, `src/screens` e `src/services`, tipando as entidades como interfaces TypeScript |
-
-Stack sugerida para a versao com build: **React, TypeScript, Vite, Tailwind, shadcn/ui, Recharts, Framer Motion, React Hook Form e Zod**. A logica de `actions` e de sincronizacao com o Supabase pode ser copiada quase sem alteracoes, pois o `@supabase/supabase-js` e o mesmo nos dois cenarios.
+| `classes`, `groups`, `students` | Turmas, grupos e alunos |
+| `individual_grades` | Notas individuais e notas individuais do grupo (campo `kind`) |
+| `group_grades_history` | Histórico da nota coletiva do grupo |
+| `diary_entries`, `events` | Diário de bordo e calendário |
+| `profiles`, `invites` | Usuários, níveis de acesso e convites |
+| `audit_log` | Registro de atividades, legível apenas pelo administrador |
 
 <br/>
 
 ## Tecnologias
 
 <div align="center">
-
 <img src="https://skillicons.dev/icons?i=html,css,js,react,supabase,postgres,git,github&theme=dark" alt="Tecnologias utilizadas" />
-
 </div>
 
 <br/>
@@ -363,11 +274,7 @@ Stack sugerida para a versao com build: **React, TypeScript, Vite, Tailwind, sha
 Estudante de Engenharia de Software
 
 <a href="https://github.com/callmekaue">
-  <img src="https://img.shields.io/badge/GitHub-callmekaue-0b1220?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+  <img src="https://img.shields.io/badge/GitHub-callmekaue-0A1F5C?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
 </a>
 
 </div>
-
-<br/>
-
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:38bdf8,50:1d4ed8,100:0b1220&height=140&section=footer&reversal=true" alt="" />
