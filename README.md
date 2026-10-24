@@ -1,17 +1,17 @@
 <!--
   Os arquivos de imagem citados aqui (pacora-*.png, shot-*.png e demo-*.gif)
-  ficam na raiz do repositório, ao lado deste README. Nenhuma pasta é necessária.
+  ficam na pasta pacora-readme-arquivos, ao lado deste README.
 -->
 
 <div align="center">
 
-<img src="./pacora-banner.png" alt="Pacora, gestor de turmas" width="100%" />
+<img src="./pacora-readme-arquivos/pacora-banner.png" alt="Pacora, gestor de turmas" width="100%" />
 
 <br/><br/>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./pacora-logo-dark.png">
-  <img src="./pacora-logo.png" alt="Pacora" width="360">
+  <source media="(prefers-color-scheme: dark)" srcset="./pacora-readme-arquivos/pacora-logo-dark.png">
+  <img src="./pacora-readme-arquivos/pacora-logo.png" alt="Pacora" width="360">
 </picture>
 
 <br/><br/>
@@ -74,7 +74,7 @@ Login por usuário, dois níveis de acesso, regras de segurança no banco e regi
 ### Visão geral e grupos
 
 <div align="center">
-<img src="./demo-tour.gif" alt="Navegando pelo dashboard, pela turma e reorganizando grupos com arrastar e soltar" width="92%" />
+<img src="./pacora-readme-arquivos/demo-tour.gif" alt="Navegando pelo dashboard, pela turma e reorganizando grupos com arrastar e soltar" width="92%" />
 <br/><sub>Dashboard, turma da segunda-feira e quadro de grupos com arrastar e soltar.</sub>
 </div>
 
@@ -83,7 +83,7 @@ Login por usuário, dois níveis de acesso, regras de segurança no banco e regi
 ### Notas e média do grupo
 
 <div align="center">
-<img src="./demo-notas.gif" alt="Lançando notas individuais do grupo e calculando a média do grupo" width="92%" />
+<img src="./pacora-readme-arquivos/demo-notas.gif" alt="Lançando notas individuais do grupo e calculando a média do grupo" width="92%" />
 <br/><sub>Notas individuais do grupo lançadas dentro do grupo e cálculo automático da média (quem não tem nota conta zero).</sub>
 </div>
 
@@ -92,7 +92,7 @@ Login por usuário, dois níveis de acesso, regras de segurança no banco e regi
 ### Todos os alunos
 
 <div align="center">
-<img src="./demo-alunos.gif" alt="Busca e filtros na listagem de todos os alunos" width="92%" />
+<img src="./pacora-readme-arquivos/demo-alunos.gif" alt="Busca e filtros na listagem de todos os alunos" width="92%" />
 <br/><sub>Listagem geral em ordem alfabética, com busca por nome ou RGM e filtros por dia e grupo.</sub>
 </div>
 
@@ -101,7 +101,7 @@ Login por usuário, dois níveis de acesso, regras de segurança no banco e regi
 ### Tema escuro e tema claro
 
 <div align="center">
-<img src="./demo-tema.gif" alt="Alternando entre o tema escuro e o tema claro" width="92%" />
+<img src="./pacora-readme-arquivos/demo-tema.gif" alt="Alternando entre o tema escuro e o tema claro" width="92%" />
 <br/><sub>O padrão é o azul-marinho com degradê royal. Um botão muda para o tema claro.</sub>
 </div>
 
@@ -110,7 +110,7 @@ Login por usuário, dois níveis de acesso, regras de segurança no banco e regi
 ### No celular
 
 <div align="center">
-<img src="./demo-celular.gif" alt="Sistema no celular, com barra de navegação inferior" width="300" />
+<img src="./pacora-readme-arquivos/demo-celular.gif" alt="Sistema no celular, com barra de navegação inferior" width="300" />
 <br/><sub>Barra de navegação inferior, tabelas em cartões e janelas que abrem de baixo para cima.</sub>
 </div>
 
@@ -120,16 +120,16 @@ Login por usuário, dois níveis de acesso, regras de segurança no banco e regi
 
 <table>
 <tr>
-<td width="50%"><img src="./shot-dashboard.png" alt="Dashboard" /><br/><sub>Dashboard</sub></td>
-<td width="50%"><img src="./shot-turma.png" alt="Grupos da turma" /><br/><sub>Grupos da turma</sub></td>
+<td width="50%"><img src="./pacora-readme-arquivos/shot-dashboard.png" alt="Dashboard" /><br/><sub>Dashboard</sub></td>
+<td width="50%"><img src="./pacora-readme-arquivos/shot-turma.png" alt="Grupos da turma" /><br/><sub>Grupos da turma</sub></td>
 </tr>
 <tr>
-<td width="50%"><img src="./shot-notas.png" alt="Notas do grupo" /><br/><sub>Notas do grupo</sub></td>
-<td width="50%"><img src="./shot-alunos.png" alt="Todos os alunos" /><br/><sub>Todos os alunos</sub></td>
+<td width="50%"><img src="./pacora-readme-arquivos/shot-notas.png" alt="Notas do grupo" /><br/><sub>Notas do grupo</sub></td>
+<td width="50%"><img src="./pacora-readme-arquivos/shot-alunos.png" alt="Todos os alunos" /><br/><sub>Todos os alunos</sub></td>
 </tr>
 <tr>
-<td width="50%"><img src="./shot-claro.png" alt="Tema claro" /><br/><sub>Tema claro</sub></td>
-<td width="50%" align="center"><img src="./shot-celular.png" alt="Versão para celular" width="45%" /><br/><sub>Celular</sub></td>
+<td width="50%"><img src="./pacora-readme-arquivos/shot-claro.png" alt="Tema claro" /><br/><sub>Tema claro</sub></td>
+<td width="50%" align="center"><img src="./pacora-readme-arquivos/shot-celular.png" alt="Versão para celular" width="45%" /><br/><sub>Celular</sub></td>
 </tr>
 </table>
 
